@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import marked from 'marked'
+import data from './data'
 
-function App() {
+marked.setOptions({
+  gfm: true,
+  breaks: true,
+});
+//https://reactjs.org/docs/dom-elements.html
+
+const MarkdownPreview = () => {
+  const [preview, setPreview] = useState(data)
+  const handleChange = (e) => {
+    setPreview(e.target.value)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <form>
+        <div className='title'>
+          Editor
+        </div>
+        <textarea name='editor' id='editor' onChange={handleChange}>{preview}</textarea>
+      </form>
+      <section>
+        <div className='title'>Preview</div>
+        <div id='preview' dangerouslySetInnerHTML={{__html: marked(preview)}}></div>
+      </section>
+    </>
+  )
 }
 
-export default App;
+function App() {
+  return <MarkdownPreview />
+}
+
+export default App
