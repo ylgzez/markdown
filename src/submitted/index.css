@@ -16,18 +16,15 @@ body {
 form {
   width: 80vw;
   margin: 0 auto;
-  margin-top: 1rem;
 }
 
 section {
   width: 90vw;
   margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .title {
-  display: flex;
-  justify-content: space-between;
   height: 1.5rem;
   background: #008080;
 }
@@ -36,6 +33,7 @@ section {
 #editor {
   display: block;
   width: 80vw;
+  height: 20vh;
   background: #a3c2c2;
   border: none;
   outline: none;
@@ -45,12 +43,6 @@ section {
 
 #preview {
   background: #a3c2c2;
-  overflow: auto;
-}
-
-button {
-  border: none;
-  background: transparent;
 }
 
 img {
